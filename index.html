@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FÍRØØ EDITING | Portfolio</title>
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #05070d;
+  color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  padding: 24px 16px;
+  text-align: center;
+  background: #090d18;
+  border-bottom: 1px solid #087bff;
+}
+
+.logo {
+  font-size: 29px;
+  font-weight: bold;
+  color: #00aaff;
+  text-shadow: 0 0 16px #008cff;
+}
+
+header p {
+  color: #c7d5e8;
+  font-size: 14px;
+}
+
+/* Nav Bar Sirreeffame */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 8px;
+  background: #0d1322;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #183452;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  color: #00aaff;
+  background: rgba(0, 170, 255, 0.15);
+}
+
+.hero {
+  text-align: center;
+  padding: 55px 18px;
+  background: radial-gradient(circle at top, #10284c, #05070d 70%);
+}
+
+.hero h1 {
+  color: #22baff;
+  font-size: 30px;
+  margin-bottom: 12px;
+  min-height: 45px;
+}
+
+.hero p {
+  color: #d0d9e8;
+  margin-bottom: 22px;
+}
+
+.btn {
+  display: inline-block;
+  background: #008cff;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #006ece;
+}
+
+section {
+  padding: 36px 16px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 25px;
+  color: #21b7ff;
+  margin-bottom: 8px;
+}
+
+.intro {
+  text-align: center;
+  color: #b9c6d9;
+  margin-bottom: 24px;
+}
+
+/* Filter Buttons */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background: #101827;
+  color: #00aaff;
+  border: 1px solid #183452;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: #008cff;
+  color: white;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.photo-card {
+  background: #101827;
+  border: 1px solid #183452;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .2s, border-color .2s;
+}
+
+.photo-card.hide {
+  display: none;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  border-color: #00aaff;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.photo-card h3 {
+  padding: 9px 10px 0;
+  font-size: 15px;
+}
+
+.photo-card p {
+  color: #9eafc5;
+  font-size: 12px;
+  padding: 0 10px 12px;
+}
+
+/* Form Styles */
+.order-form {
+  background: #101827;
+  border: 1px solid #183452;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #b9c6d9;
+  font-size: 14px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: #05070d;
+  border: 1px solid #183452;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Testimonials */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.review-card {
+  background: #101827;
+  border: 1px solid #183452;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.review-card .stars {
+  color: #ffca28;
+  margin-bottom: 8px;
+}
+
+.about {
+  text-align: center;
+  background: #0b1120;
+  border-radius: 14px;
+  padding: 25px 18px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: #00aaff;
+  font-size: 22px;
+  transition: transform 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+footer {
+  text-align: center;
+  background: #090d18;
+  border-top: 1px solid #183452;
+  padding: 22px 12px;
+  color: #9eafc5;
+  font-size: 13px;
+}
+
+#viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.94);
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+#viewer img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+#closeViewer {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-size: 32px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 650px) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .photo-card img {
+    height: 230px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  nav a {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">⚡ FÍRØØ EDITING ⚡</div>
+  <p>Your Photo, Our Creativity.</p>
+</header>
+
+<nav>
+  <a href="#home">Mana</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#about">Waa'ee Keenya</a>
+  <a href="#reviews">Maamiltoota</a>
+  <a href="#contact">Nu Qunnamaa</a>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1><span id="typing"></span></h1>
+    <p>Kalaqa, bareedina fi editing qulqullina qabu. Hojiiwwan keenya asitti ilaali.</p>
+    <a class="btn" href="#portfolio">Suuraawwan Ilaali</a>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2 class="section-title">📸 Portfolio Keenya</h2>
+    <p class="intro">Fakkeenya hojii suuraa fi kalaqa keenya.</p>
+
+    <!-- Filter Buttons -->
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterGallery('all', event)">Hunda</button>
+      <button class="filter-btn" onclick="filterGallery('portrait', event)">Portrait</button>
+      <button class="filter-btn" onclick="filterGallery('nature', event)">Nature</button>
+      <button class="filter-btn" onclick="filterGallery('photography', event)">Photography</button>
+    </div>
+
+    <div class="gallery">
+      <div class="photo-card" data-category="portrait">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85" alt="Portrait art" loading="lazy">
+        <h3>Portrait Editing</h3>
+        <p>Suuraa namaa fi bareedina artii.</p>
+      </div>
+
+      <div class="photo-card" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85" alt="Landscape photography" loading="lazy">
+        <h3>Nature Art</h3>
+        <p>Suuraa uumamaa fi halluu bareedaa.</p>
+      </div>
+
+      <div class="photo-card" data-category="photography">
+        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=85" alt="Photography camera" loading="lazy">
+        <h3>Photography</h3>
+        <p>Suuraa ka'uu fi hojii cameraa.</p>
+      </div>
+
+      <div class="photo-card" data-category="portrait">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=85" alt="Portrait photography" loading="lazy">
+        <h3>Beauty Portrait</h3>
+        <p>Portrait qulqullina olaanaa qabu.</p>
+      </div>
+
+      <div class="photo-card" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=85" alt="Mountain landscape" loading="lazy">
+        <h3>Nature & Light</h3>
+        <p>Halluu, ifa fi miidhagina uumamaa.</p>
+      </div>
+
+      <div class="photo-card" data-category="photography">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=85" alt="Creative workspace" loading="lazy">
+        <h3>Creative Studio</h3>
+        <p>Hojii kalaqaa fi design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about">
+      <h2 class="section-title">Waa'ee FÍRØØ EDITING</h2>
+      <p>Nuti suuraa gara hojii kalaqaa bareedaatti jijjiiruu irratti xiyyeeffanna. Suuraa kee, kalaqa keenya!</p>
+      
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="reviews">
+    <h2 class="section-title">⭐ Yaada Maamiltootaa</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Editing baay'ee bareedaa fi qulqullina qabu!"</p>
+        <h4 style="margin-top:8px; color:#00aaff;">– Tolosaa A.</h4>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Hojii saffisaa fi amansiisaa. Galatoomaa!"</p>
+        <h4 style="margin-top:8px; color:#00aaff;">– Meroo K.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Order Section -->
+  <section id="contact">
+    <h2 class="section-title">Nu Qunnamaa / Ajaja Eergi</h2>
+    <p class="intro">Formii armaan gadii guutuun WhatsApp irratti ergaa.</p>
+
+    <form class="order-form" onsubmit="sendWhatsApp(event)">
+      <div class="form-group">
+        <label>Maqaa Kee</label>
+        <input type="text" id="clientName" placeholder="Maqaa kee galchi" required>
+      </div>
+      <div class="form-group">
+        <label>Gosa Tajaajilaa</label>
+        <select id="serviceType">
+          <option value="Portrait Editing">Portrait Editing</option>
+          <option value="Nature / Color Grading">Nature / Color Grading</option>
+          <option value="Cover Design">Cover Design / Poster</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ergaa Dabalataa</label>
+        <textarea id="clientMessage" rows="3" placeholder="Yaada dabalataa..."></textarea>
+      </div>
+      <button type="submit" class="btn" style="width:100%;">WhatsApp'n Ergi 📲</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <strong>⚡ FÍRØØ EDITING ⚡</strong>
+  <p>Your Photo, Our Creativity.</p>
+  <p>© <span id="year"></span> Firoo Editing</p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="viewer" role="dialog">
+  <button id="closeViewer">&times;</button>
+  <img id="largePhoto" src="" alt="Suuraa guddaa">
+</div>
+
+<script>
+// Year Update
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Typing Effect
+const texts = ["Suuraa Kee Gara Artitti!", "Kalaqa Bareeda fi Qulqulluu.", "FÍRØØ EDITING!"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type() {
+  if (count === texts.length) { count = 0; }
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing").textContent = letter;
+  if (letter.length === currentText.length) {
+    count++;
+    index = 0;
+    setTimeout(type, 2000);
+  } else {
+    setTimeout(type, 100);
+  }
+})();
+
+// Filter System
+function filterGallery(category, e) {
+  const cards = document.querySelectorAll(".photo-card");
+  const buttons = document.querySelectorAll(".filter-btn");
+
+  buttons.forEach(btn => btn.classList.remove("active"));
+  e.target.classList.add("active");
+
+  cards.forEach(card => {
+    if (category === "all" || card.dataset.category === category) {
+      card.classList.remove("hide");
+    } else {
+      card.classList.add("hide");
+    }
+  });
+}
+
+// WhatsApp Order Integration
+function sendWhatsApp(event) {
+  event.preventDefault();
+  const phone = "251900000000"; // LAKKOOFSA WHATSAPP KEE ASITTI JIJJIIRI
+  const name = document.getElementById("clientName").value;
+  const service = document.getElementById("serviceType").value;
+  const message = document.getElementById("clientMessage").value;
+
+  const url = `https://wa.me/${phone}?text=Akkam%20Firoo%20Editing,%20maqaan%20koo%20${encodeURIComponent(name)}.%20Tajaajila%20${encodeURIComponent(service)}%20barbaadeen%20ture.%20Ergaa:%20${encodeURIComponent(message)}`;
+  
+  window.open(url, "_blank");
+}
+
+// Lightbox Viewer
+const viewer = document.getElementById("viewer");
+const largePhoto = document.getElementById("largePhoto");
+
+document.querySelectorAll(".photo-card img").forEach(function(photo) {
+  photo.addEventListener("click", function() {
+    largePhoto.src = photo.src;
+    viewer.style.display = "flex";
+  });
+});
+
+document.getElementById("closeViewer").addEventListener("click", function() {
+  viewer.style.display = "none";
+});
+
+viewer.addEventListener("click", function(event) {
+  if (event.target === viewer) {
+    viewer.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
